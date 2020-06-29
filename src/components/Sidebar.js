@@ -52,6 +52,7 @@ const Sidebar = () => {
                     <Route
                         key={index}
                         path={route.path}
+                        className={route.path}
                         exact={route.exact}
                         children={<route.main />}
                     />
