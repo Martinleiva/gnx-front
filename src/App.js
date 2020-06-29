@@ -1,9 +1,13 @@
 import React from 'react';
 import './App.css';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <h1>Holas</h1>
+    <div className="flex">
+      <Sidebar />
+    </div>
+    
   );
 }
 
