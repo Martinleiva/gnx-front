@@ -37,41 +37,41 @@ const Departamentos = () => {
                 <h1 className="p-5"><u>Listado de Departamentos</u></h1>
                 <div className="m-5 pl-5">
                     <table className="table-auto">
-                        <thead>
+                        <thead className="bg-yellow-600">
                             <tr>
-                                <th className="px-4 py-2">ID</th>
-                                <th className="px-4 py-2">Nombre</th>
-                                <th className="px-4 py-2">Acciones</th>
+                                <th className="px-4 py-2 text-white">ID</th>
+                                <th className="px-4 py-2 text-white">Nombre</th>
+                                <th className="px-4 py-2 text-white">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             
-                                {departamentos.map( dpto => (
-                                    <tr key={dpto.id}>
-                                        <td className="border px-4 py-2">
-                                            {dpto.id}
-                                        </td>
-                                        <td className="border px-4 py-2">
-                                            {dpto.nombre}
-                                        </td>
-                                        <td className="border px-4 py-2">
-                                            <div>
-                                                <div className="inline-block pr-4">
-                                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                                                        Modificar
-                                                    </button>
-                                                </div>
-                                                
-                                                <div className="inline-block">
-                                                    <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                                                        Eliminar
-                                                    </button>
-                                                </div>
-                                                
+                            {departamentos.map( dpto => (
+                                <tr key={dpto.id}>
+                                    <td className="border px-4 py-2">
+                                        {dpto.id}
+                                    </td>
+                                    <td className="border px-4 py-2">
+                                        {dpto.nombre}
+                                    </td>
+                                    <td className="border px-4 py-2">
+                                        <div>
+                                            <div className="inline-block pr-4">
+                                                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                                    Modificar
+                                                </button>
                                             </div>
-                                        </td>
-                                    </tr>   
-                                ))}
+                                            
+                                            <div className="inline-block">
+                                                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                                                    Eliminar
+                                                </button>
+                                            </div>
+                                            
+                                        </div>
+                                    </td>
+                                </tr>   
+                            ))}
                         </tbody>
                     </table>
                     <div className="py-5 text-center">
@@ -86,7 +86,7 @@ const Departamentos = () => {
                     <div className="mt-5 pl-8">
                         <h1 className="py-5 px-5 inline-block">Agregar Departamento</h1>
                         <form 
-                            className="bg-yellow-600 shadow-md rounded mt-8 py-5 px-5"
+                            className="bg-yellow-600 shadow-md rounded py-5 px-5"
                             onSubmit={formik.handleSubmit}
                         >
                             <div className="mb-4">
@@ -111,7 +111,7 @@ const Departamentos = () => {
                             </div>
 
                             { formik.touched.nuevodpto && formik.errors.nuevodpto ? (
-                                <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-4">
+                                <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
                                     <p className="font-bold">Error</p>
                                     <p>{formik.errors.nuevodpto}</p>
                                 </div>
