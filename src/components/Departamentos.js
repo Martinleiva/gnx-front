@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useQuery, gql } from '@apollo/client';
+
+const QUERY = gql`
+query {
+    departments{
+      id
+      dept_name
+    }
+  }
+`;
 
 const Departamentos = () => {
 
-    const departamentos = [
-        { id: 0, nombre: 'Prueba 0'},
-        { id: 1, nombre: 'Prueba 1'},
-        { id: 2, nombre: 'Prueba 2'},
-        { id: 3, nombre: 'Prueba 3'},
-    ]
+    //Obtener dptos de GraphQL
+    const { data, loading, error } = useQuery(QUERY);
 
     const [departamento, guardarDepartamento] = useState(false);
 
@@ -20,6 +26,7 @@ const Departamentos = () => {
     //Validar Form
     const formik = useFormik({
         initialValues: {
+            id: 3,
             nuevodpto: ''
         },
         validationSchema: Yup.object({
@@ -27,14 +34,17 @@ const Departamentos = () => {
         }),
         onSubmit: valores => {
             console.log('enviando...');
+            valores.id = valores.id + 1;
             console.log(valores);
         }
     });
 
+    if(loading) return 'Cargando...';
+
     return (
         <>
             <div className="mt-5">
-                <h1 className="p-5"><u>Listado de Departamentos</u></h1>
+                <h1 className="py-5 pl-8"><u>Listado de Departamentos</u></h1>
                 <div className="m-5 pl-5">
                     <table className="table-auto">
                         <thead className="bg-yellow-600">
@@ -46,13 +56,13 @@ const Departamentos = () => {
                         </thead>
                         <tbody>
                             
-                            {departamentos.map( dpto => (
+                            {data.departments .map( dpto => (
                                 <tr key={dpto.id}>
                                     <td className="border px-4 py-2">
                                         {dpto.id}
                                     </td>
                                     <td className="border px-4 py-2">
-                                        {dpto.nombre}
+                                        {dpto.dept_name}
                                     </td>
                                     <td className="border px-4 py-2">
                                         <div>
