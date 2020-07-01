@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useQuery, useMutation, gql } from '@apollo/client';
-import Departamento from './Departamento';
+import EliminarDepartamento from './EliminarDepartamento';
 
 const LISTADO_DPTOS = gql`
     query {
@@ -146,7 +146,7 @@ const Departamentos = () => {
                                                 Modificar
                                             </button>
                                         </div>
-                                        <Departamento 
+                                        <EliminarDepartamento 
                                             key={dpto.id}
                                             dpto={dpto}
                                             index={index}

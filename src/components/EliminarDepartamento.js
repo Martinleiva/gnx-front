@@ -20,7 +20,7 @@ const ELIMINAR_DPTO = gql`
     }
 `;
 
-const Departamento = ({ dpto, index }) => {
+const EliminarDepartamento = ({ dpto, index }) => {
 
     const { id } = dpto;
 
@@ -90,4 +90,4 @@ const Departamento = ({ dpto, index }) => {
     );
 };
 
-export default Departamento;
+export default EliminarDepartamento;
