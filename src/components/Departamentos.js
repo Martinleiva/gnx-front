@@ -69,6 +69,7 @@ const Departamentos = () => {
     const handleClick = () => {
         guardarDepartamento(true);
         guardarModificar(false);
+        formik.values.nuevodpto = '';
     }
 
     //Validar Form
