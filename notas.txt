@@ -1,0 +1,5 @@
+sudo npm install -g run-rs --unsafe-perm=true --allow-root
+npm i
+npm i mongo-express
+----
+mongo-express -U "mongodb://localhost:27017,localhost:27018,localhost:27019/example?replicaSet=rs"

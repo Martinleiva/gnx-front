@@ -5,17 +5,17 @@ import {v4} from 'uuid';
 
 const Employees = () => {
 
+    const EMPLOYEES = [
+        { id:1, last_name:"apellido prueba", name:"nombre prueba" },
+        { id:2, last_name: "apellido prueba", name: "nombre prueba" },
+        { id:3, last_name: "apellido prueba", name: "nombre prueba" }
+    ];
+
     const [ employees, setEmployees ] = useState({
-        last_name:"", name:""
+       id:null, last_name:"", name:""
     });
 
     const [error, setError] = useState(false);
-
-    const EMPLOYEES = [
-        { id:"1", last_name:"apellido prueba", name:"nombre prueba" },
-        { id:"2", last_name: "apellido prueba", name: "nombre prueba" },
-        { id:"3", last_name: "apellido prueba", name: "nombre prueba" }
-    ];
 
     const handleChange = e => {
         setEmployees({
@@ -37,7 +37,7 @@ const Employees = () => {
                 return;
             }
             //assing id
-            EMPLOYEES.id = v4;
+            // EMPLOYEES.id = v4;
 
             //save in state
             
@@ -46,6 +46,11 @@ const Employees = () => {
         } catch (error) {
             console.log(error);
         }
+    }
+
+    const deleteClick = id => {
+        console.log("eliminando", id);
+        setEmployees(EMPLOYEES.filter(employee => employee.id !== id));
     }
 
     //msg error
@@ -79,7 +84,7 @@ const Employees = () => {
                         </button>
                         <button 
                             className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md"
-                            // onClick={() => deleteClick()}
+                            onClick={() => deleteClick(employee.id)}
                             >
                            x Eliminar
                         </button>
