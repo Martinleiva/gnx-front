@@ -20,7 +20,7 @@ const ELIMINAR_DPTO = gql`
     }
 `;
 
-const EliminarDepartamento = ({ dpto, index }) => {
+const EliminarDepartamento = ({ dpto }) => {
 
     const { id } = dpto;
 
@@ -80,9 +80,9 @@ const EliminarDepartamento = ({ dpto, index }) => {
     }
 
     return (
-
-        <div className="inline-block">
-            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                     
+        <div className="inline-block pr-4">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
             onClick={() => eliminarDpto(id)}>
                 Eliminar
             </button>
