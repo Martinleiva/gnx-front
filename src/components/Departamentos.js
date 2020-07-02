@@ -55,14 +55,17 @@ const Departamentos = () => {
     });
 
     //Mutation para modificar dpto
-    const [updatedepartment] = useMutation(MODIFICAR_DPTO)
+    const [updatedepartment] = useMutation(MODIFICAR_DPTO);
 
+
+    //States para mensajes de error y confirmacion
     const [departamento, guardarDepartamento] = useState(false);
     const [agregado, guardarAgregado] = useState(false);
     const [modificar, guardarModificar] = useState(false);
     const [mensaje, guardarMensaje] = useState(null);
     const [depto, guardarDepto] = useState({});
 
+    //Funcion para levantar vista de departamento
     const handleClick = () => {
         guardarDepartamento(true);
         guardarModificar(false);
@@ -114,6 +117,7 @@ const Departamentos = () => {
 
     if(loading) return 'Cargando...';
 
+    //Mensaje de Error
     const mostrarMensaje = () => {
         return (
             <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
@@ -134,6 +138,7 @@ const Departamentos = () => {
         modifidpto: Yup.string().required('El nombre del departamento es obligatorio')
     });
 
+    //Para modificar campo nombre departamento
     const handleChange = (e) => {
         guardarDepto({
             id: depto.id,
@@ -141,6 +146,7 @@ const Departamentos = () => {
         });
     }
 
+    //Modificacion para la BD
     const modificarInfoDpto = async (valores) => {
     
         const { id } = depto;
