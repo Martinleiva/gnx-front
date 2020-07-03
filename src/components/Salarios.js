@@ -68,7 +68,7 @@ const Salaries = () => {
                 <td className="border px-4 py-2">36235123</td>
                 <td className="border px-4 py-2">{salary.salary}</td>
                 <td className="border px-4 py-2">{salary.from_date}</td>
-                <td className="border px-4 py-2">2020-02-09</td>
+                <td className="border px-4 py-2">{salary.to_date}</td>
                 <td className="border px-4 py-2">
                   <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md">Modificar</button>
                   <button className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md">Eliminar</button>

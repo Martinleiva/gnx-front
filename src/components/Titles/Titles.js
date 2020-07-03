@@ -41,37 +41,6 @@ const Titles = () => {
     if (loading) return "Cargando...";
     return (
         <Fragment>
-            {/* <div>
-                <AddTitleForm
-                    crearTitulo={crearTitulo}
-                />
-            </div>
-            <div>
-                <h1 className="px-7 text-xl text-center h-10 ">{mensaje}</h1>
-
-             
-                {Titulos.map(title => (
-                    <div className="px-2" key={Titulos.id}>
-                        <div className="flex -mx-2 text-sm">
-                            <div className="w-1/2 px-5 text-center py-3" > Nombre
-                                <div className="bg-gray-400 text-center font-semibold h-12 rounded-t px-4 py-2">{title.titleName}</div>
-                            </div>
-                            <div className="w-1/2 px-5 text-sm text-center py-3">Desde
-                                <div className="bg-gray-500 text-center h-12 rounded-t px-4 py-2"> {title.fromDate}</div>
-                            </div>
-                            <div className="w-1/2 px-5 text-sm text-center py-3">Hasta
-                                <div className="bg-gray-400 text-center font-semibold h-12 rounded-t px-4 py-2">  {title.toDate}</div>
-                            </div>
-
-                            <button className="bg-red-500 hover:bg-blue-700 text-white font-bold py-6 px-4 rounded focus:outline-none focus:shadow-outline"
-                                onClick={() => onSutmit(title.id)}
-                                type="button">Eliminar</button>
-                        </div>
-
-
-                    </div>
-                ))}
-            </div> */}
             <div className="mt-5 w-4/5">
                 <h1 className="py-5 pl-8 text-center"><u>Listado de Titulos</u></h1>
                 <div className="m-5 flex justify-center">
@@ -111,9 +80,9 @@ const Titles = () => {
                     </table>
                 </div>
 
-                <AddTitleForm
+                {/* <AddTitleForm
                     crearTitulo={crearTitulo}
-                />
+                /> */}
 
                 
             </div>
