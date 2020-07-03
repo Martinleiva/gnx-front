@@ -1,5 +1,5 @@
-import React, { useState, Fragment } from 'react';
-import AddTitleForm from './addTitleForm';
+import React, { Fragment } from 'react';
+//import AddTitleForm from './addTitleForm';
 import { useQuery } from '@apollo/client';
 import gql from "graphql-tag";
 
@@ -20,23 +20,23 @@ const Titles = () => {
 
     console.log(data);
 
-    const [Titulos, guardarTitulos] = useState([]);
+    //const [Titulos, guardarTitulos] = useState([]);
 
-    const crearTitulo = titulo => {
-        guardarTitulos([
-            ...Titulos,
-            titulo
-        ])
-    }
+    // const crearTitulo = titulo => {
+    //     guardarTitulos([
+    //         ...Titulos,
+    //         titulo
+    //     ])
+    // }
 
-    const onSutmit = id => {
+    // const onSutmit = id => {
 
-        const eliminados = Titulos.filter(titulo => titulo.id !== id)
+    //     const eliminados = Titulos.filter(titulo => titulo.id !== id)
 
-        guardarTitulos(eliminados);
+    //     guardarTitulos(eliminados);
 
 
-    }
+    // }
 
     if (loading) return "Cargando...";
     return (
