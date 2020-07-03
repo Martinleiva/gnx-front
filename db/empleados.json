@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "5eff171f3284af5b3ea0339b"
+  },
+  "dni": "36844431",
+  "first_name": "Matías Martín",
+  "last_name": "Leiva Ceballos"
+},{
+  "_id": {
+    "$oid": "5eff177e3284af5b3ea0339c"
+  },
+  "dni": "32983432",
+  "first_name": "Lucas Daniel",
+  "last_name": "Montivero"
+},{
+  "_id": {
+    "$oid": "5eff178c3284af5b3ea0339d"
+  },
+  "dni": "32532432",
+  "first_name": "Lucas",
+  "last_name": "Amaya"
+},{
+  "_id": {
+    "$oid": "5eff17993284af5b3ea0339e"
+  },
+  "dni": "32532837",
+  "first_name": "Nehuen",
+  "last_name": "Nieva"
+}]

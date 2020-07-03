@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "5eff21d73284af5b3ea033a0"
+  },
+  "title": "Ingeniero",
+  "from_date": "2020-05-09",
+  "to_date": "2020-01-09"
+},{
+  "_id": {
+    "$oid": "5eff22c13284af5b3ea033a1"
+  },
+  "title": "Contador",
+  "from_date": "2015-05-01",
+  "to_date": "2020-05-01"
+},{
+  "_id": {
+    "$oid": "5eff291e4f11f61dad3ab121"
+  },
+  "title": "Desarrollador",
+  "from_date": "2015-05-01",
+  "to_date": "2020-05-01"
+}]
