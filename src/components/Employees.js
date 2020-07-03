@@ -66,7 +66,7 @@ const Employees = () => {
     if (loading) return "Cargando...";
 
     return (
-      <div className="mt-5">
+      <div className="mt-5 w-4/5">
         <h1 className="py-5 pl-8 text-center"><u>Lista de empleados</u></h1>
         <div className="m-5 flex justify-center">
           {message ? (
@@ -79,6 +79,7 @@ const Employees = () => {
         <table className="table-auto w-full">
           <thead className="bg-yellow-600">
             <tr>
+              <th className="px-4 py-2 text-white">Nro</th>
               <th className="px-4 py-2 text-white">DNI</th>
               <th className="px-4 py-2 text-white">Apellido/s</th>
               <th className="px-4 py-2 text-white">Nombre/s</th>
@@ -86,8 +87,9 @@ const Employees = () => {
             </tr>
           </thead>
           <tbody>
-            {data.employess.map((employee) => (
+            {data.employess.map((employee, index) => (
               <tr className="text-center" key={employee.dni}>
+                <td className="border px-4 py-2">{index + 1}</td>
                 <td className="border px-4 py-2">{employee.dni}</td>
                 <td className="border px-4 py-2">{employee.last_name}</td>
                 <td className="border px-4 py-2">{employee.first_name}</td>

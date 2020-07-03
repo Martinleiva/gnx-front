@@ -185,7 +185,7 @@ const Departamentos = () => {
         <>
             <div className="mt-5">
                 <h1 className="py-5 pl-8"><u>Listado de Departamentos</u></h1>
-                <div className="m-5 pl-5">
+                <div className="m-5">
                     <table className="table-auto">
                         <thead className="bg-yellow-600">
                             <tr>

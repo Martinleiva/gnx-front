@@ -1,5 +1,5 @@
 // 3 - Salaries must have empId, salary, from_date, to_date
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
 const SALARY_LIST = gql`
@@ -21,8 +21,10 @@ const Salaries = () => {
 
   const { data, loading } = useQuery(SALARY_LIST);
 
-  const [salaries, setSalaries] = useState({});
-  const [error, setError] = useState(false);
+  console.log(data);
+
+  // const [salaries, setSalaries] = useState({});
+  // const [error, setError] = useState(false);
 
   // const handleChange = (event) => {
   //   setSalaries({
@@ -38,48 +40,45 @@ const Salaries = () => {
   
 
   // There aren't Salaries
-  const notSalaries = 0;
+  //const notSalaries = 0;
 
   if (loading) return "Cargando...";
 
   return (
-    <div className="">
+    <div className="mt-5 w-4/5">
+      <h1 className="py-5 pl-8 text-center"><u>Listado de Salarios</u></h1>
+      <div className="m-5 flex justify-center">
+        {!data.salaries ? "No cargaste nada wn xd" : (
+        <table className="table-auto w-full">
+          <thead className="bg-yellow-600">
+            <tr>
+              <th className="px-4 py-2 text-white">Nro</th>
+              <th className="px-4 py-2 text-white">DNI</th>
+              <th className="px-4 py-2 text-white">Salario</th>
+              <th className="px-4 py-2 text-white">Fecha Desde</th>
+              <th className="px-4 py-2 text-white">Fecha Hasta</th>
+              <th className="px-4 py-2 text-white">Acciones</th>
 
-      <h1>Salaries xd</h1>
-
-      {!data.salaries ? "No cargaste nada wn xd" : (<table className="table-auto">
-      <thead>
-        <tr>
-          <th className="px-4 py-2">Id</th>
-          <th className="px-4 py-2">Emp DNI</th>
-          <th className="px-4 py-2">Salary U$D</th>
-          <th className="px-4 py-2">From_Date</th>
-          <th className="px-4 py-2">To_Date</th>
-          <th className="px-4 py-2"> - </th>
-
-        </tr>
-      </thead>
-      <tbody>
-        {data.salaries.map( (salary) => (
-          <tr>
-            <td className="border px-4 py-2">{salary.id}</td>
-            <td className="border px-4 py-2">{salary.employee.dni}</td>
-            <td className="border px-4 py-2">{salary.salary}</td>
-            <td className="border px-4 py-2">{salary.from_date}</td>
-            <td className="border px-4 py-2">{salary.to_date}</td>
-            <td className="border px-4 py-2">
-              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md">Edit</button>
-              <button className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md">Delete</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>)}
-    
-
-      
-
-
+            </tr>
+          </thead>
+          <tbody>
+            {data.salaries.map( (salary, index) => (
+              <tr className="text-center" key={salary.id}>
+                <td className="border px-4 py-2">{index + 1}</td>
+                <td className="border px-4 py-2">36235123</td>
+                <td className="border px-4 py-2">{salary.salary}</td>
+                <td className="border px-4 py-2">{salary.from_date}</td>
+                <td className="border px-4 py-2">2020-02-09</td>
+                <td className="border px-4 py-2">
+                  <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md">Modificar</button>
+                  <button className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md">Eliminar</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+      </div>
     </div>
   );
 };
