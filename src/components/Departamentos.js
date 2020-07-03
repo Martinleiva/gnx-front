@@ -206,13 +206,14 @@ const Departamentos = () => {
                                     </td>
 
                                     <td className="border px-4 py-2">
-                                        <EliminarDepartamento 
-                                            dpto={dpto}
-                                        />
 
                                         <ModificarDepartamento 
                                             dpto={dpto}
                                             modificarDpto={modificarDpto}
+                                        />
+
+                                        <EliminarDepartamento 
+                                            dpto={dpto}
                                         />
                                     </td>
 

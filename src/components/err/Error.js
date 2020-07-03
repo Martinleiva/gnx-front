@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const Error = ({ typeMsg, msg }) => (
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4 mb-4 ml-12 w-1/2 text-center" role="alert">
         <strong class="font-bold">{ typeMsg }</strong>
         <span class="block sm:inline">{ msg }</span>
         <span class="absolute top-0 bottom-0 right-0 px-4 py-3">

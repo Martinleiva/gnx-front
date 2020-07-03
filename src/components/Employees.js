@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import Error from './err/Error';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import gql from "graphql-tag";
 
 const EMPLOYEES_QUERY = gql`
@@ -66,46 +66,50 @@ const Employees = () => {
     if (loading) return "Cargando...";
 
     return (
-      <div className="mt-12 mx-12">
-        <div className="uppercase font-bold">
-          <h1 className="text-center my-8">Lista de empleados</h1>
+      <div className="mt-5">
+        <h1 className="py-5 pl-8 text-center"><u>Lista de empleados</u></h1>
+        <div className="m-5 flex justify-center">
           {message ? (
             <Error
               typeMsg="Atencion. "
               msg=" Por el momento no hay empleados para mostrar."
             />
           ) : null}
-        </div>
-        <table className="table-auto">
-          <thead>
+        
+        <table className="table-auto w-full">
+          <thead className="bg-yellow-600">
             <tr>
-              <th className="px-4 py-2">DNI</th>
-              <th className="px-4 py-2">APELLIDO/S</th>
-              <th className="px-4 py-2">NOMBRE/S</th>
+              <th className="px-4 py-2 text-white">DNI</th>
+              <th className="px-4 py-2 text-white">Apellido/s</th>
+              <th className="px-4 py-2 text-white">Nombre/s</th>
+              <th className="px-4 py-2 text-white">Acciones</th>
             </tr>
           </thead>
           <tbody>
             {data.employess.map((employee) => (
-              <tr className="text-center">
+              <tr className="text-center" key={employee.dni}>
                 <td className="border px-4 py-2">{employee.dni}</td>
-                <td className="border px-4 py-2">{employee.first_name}</td>
                 <td className="border px-4 py-2">{employee.last_name}</td>
-                <button
-                  className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md"
-                  // onClick= {() => editClick()}
-                >
-                  - Modificar
-                </button>
-                <button
-                  className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md"
-                  onClick={() => deleteClick(employee.id)}
-                >
-                  x Eliminar
-                </button>
+                <td className="border px-4 py-2">{employee.first_name}</td>
+                <td className="border px-4 py-2">
+                  <button
+                    className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md"
+                    // onClick= {() => editClick()}
+                  >
+                    Modificar
+                  </button>
+                  <button
+                    className="bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded m-1 shadow-md"
+                    onClick={() => deleteClick(employee.id)}
+                  >
+                    Eliminar
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
         <form onSubmit={submitEmployee}>
           {error ? (
             <Error
@@ -114,10 +118,6 @@ const Employees = () => {
             />
           ) : null}
           <div>
-            <button className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded mt-6 border-10px mx-2 shadow-md">
-              + Crear nuevo empleado
-            </button>
-
             <input
               className="mx-4 bg-gray-200 focus:bg-white p-2"
               type="number"
@@ -142,7 +142,13 @@ const Employees = () => {
               onChange={handleChange}
               // value={name}
             />
+
+          <button 
+            className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white border border-green-500 hover:border-transparent rounded border-10px shadow-md mx-4 p-2">
+              Crear nuevo empleado
+            </button>
           </div>
+          
         </form>
       </div>
     );
