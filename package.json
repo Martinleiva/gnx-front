@@ -18,7 +18,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "sweetalert2": "^9.15.2",
-    "yup": "^0.29.1"
+    "yup": "^0.29.1",
+    "shortid": "^2.2.15"
   },
   "scripts": {
     "start": "react-scripts start",

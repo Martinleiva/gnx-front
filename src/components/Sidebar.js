@@ -9,6 +9,7 @@ import Departamentos from './Departamentos';
 import Employees from './Employees';
 import Inicio from './Inicio';
 import Salarios from './Salarios';
+import Titles from './Titles/Titles';
   
   const routes = [
     {
@@ -26,7 +27,7 @@ import Salarios from './Salarios';
     },
     {
       path: "/titulos",
-      main: () => <></>
+      main: () => <Titles/>
     },
     {
       path: "/departamentos",
