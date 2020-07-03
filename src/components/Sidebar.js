@@ -8,6 +8,7 @@ import {
 import Departamentos from './Departamentos';
 import Employees from './Employees';
 import Inicio from './Inicio';
+import Salarios from './Salarios';
   
   const routes = [
     {
@@ -21,7 +22,7 @@ import Inicio from './Inicio';
     },
     {
       path: "/salarios",
-      main: () => <></>
+      main: () => <Salarios />
     },
     {
       path: "/titulos",
