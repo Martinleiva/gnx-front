@@ -10,6 +10,7 @@ import Employees from './Employees';
 import Inicio from './Inicio';
 import Salarios from './Salarios';
 import Titles from './Titles/Titles';
+import Administrar from './Administracion/Administrar';
   
   const routes = [
     {
@@ -32,6 +33,10 @@ import Titles from './Titles/Titles';
     {
       path: "/departamentos",
       main: () => <Departamentos />
+    },
+    {
+      path: "/administrar",
+      main: () => <Administrar />
     }
   ];
 
@@ -46,6 +51,7 @@ const Sidebar = () => {
                     <NavLink to="/salarios" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Salarios</NavLink>
                     <NavLink to="/titulos" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Titulos</NavLink>
                     <NavLink to="/departamentos" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Departamentos</NavLink>
+                    <NavLink to="/administrar" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Administrar</NavLink>
                 </nav>
             </aside>
 
