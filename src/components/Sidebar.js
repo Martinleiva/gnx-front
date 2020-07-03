@@ -5,7 +5,6 @@ import {
     Route,
     NavLink
   } from "react-router-dom";
-import Departamentos from './Departamentos';
 import Salarios from './Salarios';
   
   const routes = [
@@ -28,7 +27,7 @@ import Salarios from './Salarios';
     },
     {
       path: "/departamentos",
-      main: () => <Departamentos />
+      main: () => <></>
     }
   ];
 
