@@ -7,12 +7,13 @@ import {
   } from "react-router-dom";
 import Departamentos from './Departamentos';
 import Employees from './Employees';
+import Inicio from './Inicio';
   
   const routes = [
     {
       path: "/",
       exact: true,
-      main: () => <></>
+      main: () => <Inicio />
     },
     {
       path: "/empleados",
