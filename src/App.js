@@ -3,6 +3,7 @@ import './App.css';
 import Sidebar from './components/Sidebar';
 import { ApolloProvider } from '@apollo/client';
 import client from './config/apollo';
+//import { ApolloProvider } from "@apollo/react-hooks";
 
 function App() {
   return (
