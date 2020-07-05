@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ListadoEmpleados from './ListadoEmpleados';
 
-const ListadoEmpleados = () => {
+const ListadoJefes = () => {
+
+    const [listadoempleados, guardarListadoEmpleados] = useState(false);
+
+    const handleListadoEmpleados = () => {
+        guardarListadoEmpleados(true);
+    }
 
     return (
         <>
+            <h2 className="py-5 pl-8 text-2xl">Listado de Jefes</h2>
             <div className="m-5">
-                <h2 className="py-5 pl-8 text-2xl">Listado de Empleados de <span className="font-bold">Ingeniería</span></h2>
                 <table className="table-auto w-full">
                     <thead className="bg-yellow-600">
                         <tr>
@@ -25,16 +32,20 @@ const ListadoEmpleados = () => {
                             <td className="border px-4 py-2">Leiva Ceballos</td>
                             <td className="border px-4 py-2">Matías Martín</td>
                             <td className="border px-4 py-2">
-                                <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-6 mr-6 shadow-md">
-                                    Asignar
+                                <button className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded ml-6 mr-6 shadow-md" onClick={handleListadoEmpleados}>
+                                    Asignar Nuevo Jefe
                                 </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+
+            {listadoempleados ? (
+                <ListadoEmpleados />
+            ) : null}
         </>
     );
 };
 
-export default ListadoEmpleados;
+export default ListadoJefes;
