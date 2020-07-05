@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../App.css';
 import Error from './err/Error';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import gql from "graphql-tag";
 
 const EMPLOYEES_QUERY = gql`
@@ -15,24 +15,53 @@ const EMPLOYEES_QUERY = gql`
   }
 `;
 
+const NEW_EMPLOYEE = gql`
+  mutation addemployee($input: EmployeeTypeInput!){
+    addemployee(input:$input){
+      dni
+      first_name
+      last_name
+    }
+  }
+`;
+
 const Employees = () => {
 
+    // query show all employees
     const { data, loading } = useQuery(EMPLOYEES_QUERY);
+
+    // mutation add employee
+    const [addemployee] = useMutation(NEW_EMPLOYEE, {
+      update(cache, { data: addemployee }) {
+        //Obtener el objeto de cache que queremos actualizar
+        const { employess } = cache.readQuery({ query: EMPLOYEES_QUERY });
+
+        // Reescribimos el cache (el cache nunca se debe modificar)
+        cache.writeQuery({
+          query: EMPLOYEES_QUERY,
+          data: {
+            employess: [...employess, addemployee],
+          },
+        });
+      },
+    });
+
     
     const [ employees, setEmployees ] = useState({
-       id:null, last_name:"", name:""
+       dni:"", last_name:"", name:""
     });
 
     const [error, setError] = useState(false);
 
     const handleChange = e => {
+      console.log(e.target.value);
         setEmployees({
             ...employees,
             [e.target.value]: e.target.name
         })
     }
 
-    const { last_name, name } = employees;
+    const { dni, last_name, name } = employees;
 
     //click in button save, submit employee
     const submitEmployee = e => {
@@ -40,14 +69,23 @@ const Employees = () => {
 
         try {
             //validation
-            if (last_name.trim() === '' || name.trim() === '') {
+            if (last_name.trim() === '' || name.trim() === '' || dni.trim() === '') {
                 setError(true)
                 return;
             }
-            //assing id
+            //verificar:
+              //  que no exista 2 personas con el mismo dni
+              //  que solo ingresen unicamente letras
 
             //save in state
-            
+            const {} = await addemployee({
+              variables: {
+                  input: {
+                      dept_name: nuevodpto
+                  }
+              }
+            });
+
             //reset form
             
         } catch (error) {
@@ -126,7 +164,7 @@ const Employees = () => {
               name="dni"
               placeholder="DNI"
               onChange={handleChange}
-              // value={name}
+              // value={dni}
             />
             <input
               className="mx-4 bg-gray-200 focus:bg-white p-2"
@@ -146,7 +184,7 @@ const Employees = () => {
             />
 
           <button 
-            className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white border border-green-500 hover:border-transparent rounded border-10px shadow-md mx-4 p-2">
+            className="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white border border-green-500 hover:border-transparent rounded border-10px shadow-md p-2 mx-4 my-6">
               Crear nuevo empleado
             </button>
           </div>
