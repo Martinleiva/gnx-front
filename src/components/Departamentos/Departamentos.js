@@ -184,9 +184,13 @@ const Departamentos = () => {
 
     return (
         <>
-            <div className="mt-5">
-                <h1 className="py-5 pl-8"><u>Listado de Departamentos</u></h1>
+            <div className="mt-5 w-2/5">
+            <h1 className="py-5 pl-5"><u>Departamentos</u></h1>
                 <div className="m-5">
+                <h2 className="text-2xl">Listado de Departamentos</h2>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 my-3 rounded" onClick={handleClick}>
+                        Agregar Departamento
+                    </button>
                     <table className="table-auto">
                         <thead className="bg-yellow-600">
                             <tr>
@@ -223,18 +227,12 @@ const Departamentos = () => {
 
                         </tbody>
                     </table>
-                    
-                    <div className="py-5 text-center">
-                        <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" onClick={handleClick}>
-                            Agregar Departamento
-                        </button>
-                    </div>
                 </div>
             </div>
 
             { departamento ? (
-                <div className="mt-5 pl-8">
-                    <h1 className="py-5 px-5">Agregar Departamento</h1>
+                <div className="mt-5 pl-8 w-1/3">
+                    <h1 className="py-5 px-5"><u>Agregar Departamento</u></h1>
                     <form 
                         className="bg-yellow-600 shadow-md rounded py-5 px-5"
                         onSubmit={formik.handleSubmit}
@@ -283,8 +281,8 @@ const Departamentos = () => {
             ) : null}
 
             { modificar ? (
-                <div className="mt-5 pl-8">
-                    <h1 className="py-5 px-5">Modificar Departamento</h1>
+                <div className="mt-5 pl-8 w-1/3">
+                    <h1 className="py-5 px-5"><u>Modificar Departamento</u></h1>
                     <Formik
                         validationSchema={schemaValidacion}
                         enableReinitialize

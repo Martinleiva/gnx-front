@@ -26,8 +26,13 @@ import EditarTitulo from './Titulos/EditarTitulo';
 //Departamentos
 import Departamentos from './Departamentos/Departamentos';
 
-//Administrar
-import Administrar from './Administracion/Administrar';
+//Administrar Jefes
+import AdministrarJefes from './AdministrarJefes/AdministrarJefes';
+import NuevoJefe from './AdministrarJefes/NuevoJefe';
+
+//Administrar Empleados
+import AdministrarEmpleados from './AdministrarEmpleados/AdministrarEmpleados';
+import NuevoEmpleadoDpto from './AdministrarEmpleados/NuevoEmpleadoDpto';
 
 const routes = [
   {
@@ -76,9 +81,21 @@ const routes = [
     main: () => <Departamentos />
   },
   {
-    path: "/administrar",
-    main: () => <Administrar />
-  }
+    path: "/administrar-jefes",
+    main: () => <AdministrarJefes />
+  },
+  {
+    path: "/nuevo-jefe",
+    main: () => <NuevoJefe />
+  },
+  {
+    path: "/administrar-empleados",
+    main: () => <AdministrarEmpleados />
+  },
+  {
+    path: "/nuevo-empleado-dpto/:id",
+    main: () => <NuevoEmpleadoDpto />
+  },
 ];
 
 const Sidebar = () => {
@@ -88,11 +105,12 @@ const Sidebar = () => {
             <aside className="bg-yellow-600 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
                 <nav className="mt-5 list-none">
                     <NavLink to="/" className="font-semibold block text-white p-2">Inicio</NavLink>
-                    <NavLink to="/empleados" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Empleados</NavLink>
+                    <NavLink to='/empleados' className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Empleados</NavLink>
                     <NavLink to="/salarios" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Salarios</NavLink>
                     <NavLink to="/titulos" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Titulos</NavLink>
                     <NavLink to="/departamentos" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Departamentos</NavLink>
-                    <NavLink to="/administrar" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Administrar Jefes</NavLink>
+                    <NavLink to="/administrar-jefes" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Administrar Jefes</NavLink>
+                    <NavLink to="/administrar-empleados" className="font-semibold text-white block p-2" activeClassName="bg-yellow-700">Administrar Empleados</NavLink>
                 </nav>
             </aside>
 

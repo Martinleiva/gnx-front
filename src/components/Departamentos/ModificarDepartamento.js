@@ -31,7 +31,7 @@ const ModificarDepartamento = ({ dpto, modificarDpto }) => {
 
     return (                                    
         <div className="inline-block pr-4">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
             onClick={() => modificarDpto2()}>
                 Modificar
             </button>
