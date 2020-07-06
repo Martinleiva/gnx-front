@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Hero from '../../assets/Hero.gif';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useQuery, useMutation, gql } from '@apollo/client';
@@ -184,6 +185,7 @@ const Departamentos = () => {
 
     return (
         <>
+        {data ? (
             <div className="mt-5 w-2/5">
             <h1 className="py-5 pl-5"><u>Departamentos</u></h1>
                 <div className="m-5">
@@ -229,6 +231,15 @@ const Departamentos = () => {
                     </table>
                 </div>
             </div>
+            ) : (
+                <div className="mt-5 w-4/5">
+                    <h1 className="py-5 pl-8 text-center"><u>Departamentos</u></h1>
+                    <h1 className="pl-8 text-center text-blue-700">Asegurarse de estar conectado con el servidor!</h1>
+                    <div className="flex justify-center">
+                        <img src={Hero} alt="Hero" />
+                    </div>
+                </div>
+            )}
 
             { departamento ? (
                 <div className="mt-5 pl-8 w-1/3">
