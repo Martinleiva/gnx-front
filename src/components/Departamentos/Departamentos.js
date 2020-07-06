@@ -136,13 +136,14 @@ const Departamentos = () => {
 
     //Schema para validar Modificacion
     const schemaValidacion = Yup.object({
-        modifidpto: Yup.string().required('El nombre del departamento es obligatorio')
+        dept_name: Yup.string().required('El nombre del departamento es obligatorio')
     });
 
     //Para modificar campo nombre departamento
     const handleChange = (e) => {
         guardarDepto({
             id: depto.id,
+            __typename: depto.__typename,
             [e.target.name] : e.target.value
         });
     }
@@ -157,7 +158,7 @@ const Departamentos = () => {
                 variables: {
                     input: {
                         id,
-                        dept_name: valores.modifidpto
+                        dept_name: valores.dept_name
                     }
                 }
             });
@@ -183,9 +184,13 @@ const Departamentos = () => {
 
     return (
         <>
-            <div className="mt-5">
-                <h1 className="py-5 pl-8"><u>Listado de Departamentos</u></h1>
+            <div className="mt-5 w-2/5">
+            <h1 className="py-5 pl-5"><u>Departamentos</u></h1>
                 <div className="m-5">
+                <h2 className="text-2xl">Listado de Departamentos</h2>
+                    <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 my-3 rounded" onClick={handleClick}>
+                        Agregar Departamento
+                    </button>
                     <table className="table-auto">
                         <thead className="bg-yellow-600">
                             <tr>
@@ -222,18 +227,12 @@ const Departamentos = () => {
 
                         </tbody>
                     </table>
-                    
-                    <div className="py-5 text-center">
-                        <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded" onClick={handleClick}>
-                            Agregar Departamento
-                        </button>
-                    </div>
                 </div>
             </div>
 
             { departamento ? (
-                <div className="mt-5 pl-8">
-                    <h1 className="py-5 px-5">Agregar Departamento</h1>
+                <div className="mt-5 pl-8 w-1/3">
+                    <h1 className="py-5 px-5"><u>Agregar Departamento</u></h1>
                     <form 
                         className="bg-yellow-600 shadow-md rounded py-5 px-5"
                         onSubmit={formik.handleSubmit}
@@ -282,8 +281,8 @@ const Departamentos = () => {
             ) : null}
 
             { modificar ? (
-                <div className="mt-5 pl-8">
-                    <h1 className="py-5 px-5">Modificar Departamento</h1>
+                <div className="mt-5 pl-8 w-1/3">
+                    <h1 className="py-5 px-5"><u>Modificar Departamento</u></h1>
                     <Formik
                         validationSchema={schemaValidacion}
                         enableReinitialize
@@ -293,7 +292,6 @@ const Departamentos = () => {
                         }}
                     >
                         {props => {
-
                             return (
                                 <form 
                                     className="bg-yellow-600 shadow-md rounded py-5 px-5"
@@ -305,9 +303,9 @@ const Departamentos = () => {
                                         </label>
                                         <input 
                                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                            id="modifidpto"
+                                            id="dept_name"
                                             type="text"
-                                            name="modifidpto"
+                                            name="dept_name"
                                             placeholder="Nombre Departamento"
                                             onChange={handleChange}
                                             value={props.values.dept_name}
@@ -323,10 +321,10 @@ const Departamentos = () => {
 
                                     {mensaje && mostrarMensaje()}
 
-                                    { props.touched.modifidpto && props.errors.modifidpto  ? (
+                                    { props.touched.dept_name && props.errors.dept_name  ? (
                                         <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
                                             <p className="font-bold">Error</p>
-                                            <p>{props.errors.modifidpto}</p>
+                                            <p>{props.errors.dept_name}</p>
                                         </div>
                                     ) : null
                                     }
