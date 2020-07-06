@@ -4,19 +4,28 @@
   },
   "salary": "20000",
   "from_date": "2015-05-01",
-  "to_date": "2019-05-02"
+  "to_date": "2019-05-02",
+  "employee": {
+    "$oid": "5eff171f3284af5b3ea0339b"
+  }
 },{
   "_id": {
     "$oid": "5eff26924f11f61dad3ab11f"
   },
   "salary": "30000",
   "from_date": "2012-05-01",
-  "to_date": "2018-05-02"
+  "to_date": "2018-05-02",
+  "employee": {
+    "$oid": "5eff177e3284af5b3ea0339c"
+  }
 },{
   "_id": {
     "$oid": "5eff27284f11f61dad3ab120"
   },
   "salary": "50000",
   "from_date": "2016-05-01",
-  "to_date": "2020-05-02"
+  "to_date": "2020-05-02",
+  "employee": {
+    "$oid": "5eff178c3284af5b3ea0339d"
+  }
 }]
